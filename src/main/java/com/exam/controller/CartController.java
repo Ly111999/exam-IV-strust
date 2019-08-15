@@ -12,6 +12,7 @@ import java.util.List;
 @ManagedBean(name = "cartController")
 public class CartController {
     private List<Item> items;
+    double totalAmount = 0;
 
     public CartController() {
         this.items = new ArrayList<Item>();
@@ -37,15 +38,19 @@ public class CartController {
     }
 
     public double total() {
-        double totalAmount = 0;
-        double totalDiscount = 0;
-        for(Item item : this.items) {
+        for (Item item : this.items) {
             totalAmount += item.getProduct().getPrice() * item.getQuantity();
         }
-        if (totalAmount >= 5000) {
-            totalDiscount = totalAmount - ((totalAmount * 30)/100);
-        }
         return totalAmount;
+    }
+
+    public double totalDiscount() {
+        double totalDiscount = 0;
+
+        if (totalAmount >= 5000) {
+            totalDiscount = totalAmount - ((totalAmount * 30) / 100);
+        }
+        return totalDiscount;
     }
 
     private int exists(Product product) {

@@ -6,22 +6,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductModel {
 
     private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private List<Product> products;
-
-    public ProductModel() {
-        this.products = new ArrayList<Product>();
-        this.products.add(new Product("Sp1", 2, 5, "Sp1"));
-        this.products.add(new Product("Sp2", 2, 5, "Sp2"));
-        this.products.add(new Product("Sp3", 2, 5, "Sp3"));
-        this.products.add(new Product("Sp4", 2, 5, "Sp4"));
-        this.products.add(new Product("Sp5", 2, 5, "Sp5"));
-    }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     public List<Product> findAll() {

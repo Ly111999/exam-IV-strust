@@ -30,6 +30,10 @@
             <td colspan="5" align="right">Total</td>
             <td>#{cartController.total()}</td>
         </tr>
+        <tr>
+            <td colspan="5" align="right">Total discount</td>
+            <td>#{cartController.totalDiscount()}</td>
+        </tr>
     </table>
     <br></br>
     <h:commandLink value="Continue Shopping" action="#{productController.index()}"></h:commandLink>
